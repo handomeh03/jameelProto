@@ -1,5 +1,5 @@
 
-import "../Css/Upbutton.css";
+import "../Css/UpButton.css";
 import { UseGoes } from "../Context/GoContext";
 
 export default function Upbutton() {
