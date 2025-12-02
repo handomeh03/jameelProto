@@ -10,7 +10,7 @@ export default function Hero() {
       }
   return (
     <section className="relative z-20 flex items-center bg-white dark:bg-gray-800 overflow-hidden">
-      <div className="container relative flex flex-col-reverse lg:flex-row px-6 py-12 md:py-20 mx-auto gap-10">
+      <div className="container  relative flex flex-col-reverse lg:flex-row px-6 py-12 md:py-20 mx-auto gap-10">
         
         {/* Left Section */}
         <div className="relative z-20 flex flex-col w-full lg:w-2/5">
