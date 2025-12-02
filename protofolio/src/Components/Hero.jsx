@@ -1,8 +1,13 @@
 import { useState } from "react";
 import HeroImage from "./HeroImage";
+import { UseGoes } from "../Context/GoContext";
 
 export default function Hero() {
     let [whatsapp]=useState("https://wa.me/962782584258");
+    let {Contact}=UseGoes();
+    function scrollToContact() {
+        Contact.current.scrollIntoView({behavior:"smooth"});
+      }
   return (
     <section className="relative z-20 flex items-center bg-white dark:bg-gray-800 overflow-hidden">
       <div className="container relative flex flex-col-reverse lg:flex-row px-6 py-12 md:py-20 mx-auto gap-10">
@@ -28,12 +33,12 @@ export default function Hero() {
           </p>
 
           <div className="flex mt-6 sm:mt-8 flex-wrap gap-4">
-            <a
-              href="#"
-              className="px-5 font-bold py-2.5 sm:px-6 sm:py-3 text-white uppercase bg-blue-500 border-2 border-transparent rounded-lg text-sm sm:text-md hover:bg-blue-400"
+            <button
+              onClick={scrollToContact}
+              className="px-5 hover:cursor-pointer font-bold py-2.5 sm:px-6 sm:py-3 text-white uppercase bg-blue-500 border-2 border-transparent rounded-lg text-sm sm:text-md hover:bg-blue-400"
             >
               Contant Me
-            </a>
+            </button>
 
             <a
               href={whatsapp}

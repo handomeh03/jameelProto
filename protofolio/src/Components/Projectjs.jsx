@@ -1,7 +1,9 @@
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
+import { UseGoes } from "../Context/GoContext";
 
 export default function Projectjs() {
+  let {Project}=UseGoes();
 let [projects] = useState([
   { 
     id: 1, 
@@ -35,7 +37,7 @@ let [projects] = useState([
 ]);
     
   return (
-    <div className="bg-gray-800" >
+    <div ref={Project} className="bg-gray-800" >
       <div className="mx-auto max-w-2xl px-4  sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center  dark:text-white">
         Projects

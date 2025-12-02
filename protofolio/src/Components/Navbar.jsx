@@ -1,24 +1,36 @@
+
+import { UseGoes } from "../Context/GoContext";
+
 export default function Navbar({flag,setFlag}) {
   
 
   const links = ["Home", "Projects", "Skills", "Contact"];
-   
+    let {Project}=UseGoes();
+    let {Skill}=UseGoes();
+    let {Contact}=UseGoes();
 
-  return (
+  function GoLink(link) {
+    if (link === "Projects") Project.current.scrollIntoView({ behavior: "smooth" });
+    else if (link === "Skills") Skill.current.scrollIntoView({ behavior: "smooth" });
+    else if (link === "Contact") Contact.current.scrollIntoView({ behavior: "smooth" });
+    else window.scrollTo({ top: 0, behavior: "smooth" });
+    setFlag(false);
+  }
+ return (
     <>
       {/* Desktop Navbar */}
       <nav className="items-center hidden text-lg text-white uppercase font-sen lg:flex">
         {links.map((link) => (
-          <a
+          <button
             key={link}
-            href={`#${link.toLowerCase()}`}
-            className="flex px-6 py-2 hover:text-gray-500"
+            onClick={() => GoLink(link)}
+            className="flex px-6 py-2 hover:text-gray-500 hover:cursor-pointer"
           >
             {link}
-          </a>
+          </button>
         ))}
       </nav>
-    
+
       {/* Overlay */}
       <div
         className={`fixed inset-0 bg-black/40 z-40 transition-opacity duration-300 ${
@@ -34,13 +46,13 @@ export default function Navbar({flag,setFlag}) {
         }`}
       >
         {links.map((link) => (
-          <a
+          <button
             key={link}
-            className="block px-4 py-3 text-white hover:bg-gray-700 transition-colors duration-300"
-            onClick={() => setFlag(false)}
+            onClick={() => GoLink(link)}
+            className="block px-4 py-3 text-white hover:bg-gray-700 hover:cursor-pointer transition-colors duration-300 w-full text-left"
           >
             {link}
-          </a>
+          </button>
         ))}
       </div>
     </>

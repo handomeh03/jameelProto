@@ -1,8 +1,12 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { UseGoes } from "../Context/GoContext";
 
 export default function Skills() {
+  
+       let {Skill}=UseGoes();
+      
   useEffect(() => {
     AOS.init({ duration: 500, once: true });
   }, []);
@@ -26,7 +30,7 @@ export default function Skills() {
   ];
 
   return (
-    <section className=" flex flex-col justify-center items-center dark:bg-gray-800  px-4 py-16">
+    <section ref={Skill} className=" flex flex-col justify-center items-center dark:bg-gray-800  px-4 py-16">
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center  dark:text-white">
         My Skills
       </h2>
