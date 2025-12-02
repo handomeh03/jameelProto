@@ -13,7 +13,7 @@ function App() {
   let {Home}=UseGoes();
 
   return (
-    <div ref={Home}  className="relative h-screen   bg-white dark:bg-gray-800">
+    <div ref={Home}  className="   bg-white dark:bg-gray-800">
       <Header/>
       <Hero/>
       <Projectjs/>
